@@ -1,0 +1,22 @@
+Para que los eventos funcionen se debe activar una variable de MySQL.
+
+Para esto nos dirigimos a:
+
+	C:\ProgramData\MySQL\MySQL Server 5.7
+
+	NOTA:Si no aparece la carpeta "ProgramData" es porque esta oculta, asi que active la casilla "Elementos ocultos"
+	en la pestaña "vista"
+
+Una ves dentro de la capeta, abrir el archivo my.ini y debajo de [mysqld] copiar lo siguiente:
+
+	event_scheduler=ON 
+
+Quedando asi:
+
+	[mysqld]
+	/*
+		Resto de variables
+	*/
+	event_scheduler=ON 
+
+Se guarda el cambio y se procede a reiniciar el servicio de MySQL
