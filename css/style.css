@@ -7,7 +7,10 @@ body{
 #formulario{
     float: left;
     margin-left: 15%;
-    margin-top: 5%;
+    margin-top: 10%;
+    border: 1px solid black;
+    padding: 3%;
+    background: rgba(14, 13, 11, .8)
 }
 #cambio{
     float: left;
@@ -17,11 +20,12 @@ body{
 }
 #logo{
     float: right;
-    width: 20%;
+    width: 15%;
     height: 100%;
+    right: 2%;
     background: url('../img/Escudo.png');
-    background-size: 100%,100%;
     background-repeat: no-repeat;
+    background-size: 50%;
 }
 #cont{
     height: 30%;
