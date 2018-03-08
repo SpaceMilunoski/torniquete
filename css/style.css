@@ -10,7 +10,7 @@ body{
     font-size: larger;
     color: white;
     float: left;
-    margin-left: 15%;
+    margin-left: 10%;
     margin-top: 10%;
     border: 1px solid black;
     padding: 3%;
@@ -29,7 +29,7 @@ body{
     right: 2%;
     background: url('../img/Escudo.png');
     background-repeat: no-repeat;
-    background-size: 50%;
+    background-size: 70%;
 }
 #cont{
     height: 30%;
