@@ -20,6 +20,8 @@ body{
     width: 20%;
     height: 100%;
     background: url('../img/Escudo.png');
+    background-size: 100%,100%;
+    background-repeat: no-repeat;
 }
 #cont{
     height: 30%;
