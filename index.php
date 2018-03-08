@@ -34,6 +34,7 @@
             </form>
         <center><div id="registrado" name="registrado"><h1><div id="mensaje"><?php echo $mensaje;?></div></h1></div></center> 
         </div>
+        <div id="logo"></div>
     </div>
   </body>
 </html>

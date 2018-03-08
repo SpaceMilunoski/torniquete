@@ -15,6 +15,12 @@ body{
     height: 100%;
     background: black;
 }
+#logo{
+    float: right;
+    width: 20%;
+    height: 100%;
+    background: url('../img/Escudo.png');
+}
 #cont{
     height: 30%;
     display: block;
