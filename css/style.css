@@ -1,4 +1,6 @@
-
+body{
+    background: url('img/img.jpg');
+}
 #formulario{
     float: left;
     margin-left: 15%;
