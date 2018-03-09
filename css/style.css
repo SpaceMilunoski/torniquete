@@ -6,15 +6,24 @@ body{
 }
 #formulario{
     text-align: center;
-    width: 30%;
-    font-size: larger;
+    margin: 0 auto;
+    width: 40%;
+    height: 30%;
+    -webkit-border-radius: 8px/7px;
+    -moz-border-radius: 8px/7px;
+    border-radius: 8px/7px;
+    background-color: rgba(26, 26, 26, 0.91);
+    -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31);
+    -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31);
+    box-shadow: 1px 2px 5px rgba(0,0,0,.31);
+    border: solid 1px #cbc9c9;
+    float:center;
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    bottom: 35%;
     color: white;
-    float: left;
-    margin-left: 10%;
-    margin-top: 10%;
-    border: 1px solid black;
-    padding: 3%;
-    background: rgba(14, 13, 11, .8)
+    font-size: larger;
 }
 #cambio{
     float: left;
@@ -35,11 +44,25 @@ body{
     height: 30%;
     display: block;
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
-    margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 input[type=number]{
-    -moz-appearance:textfield; 
+    -moz-appearance:textfield;
+}
+label.matricula {
+        font-size: 200%;
+}
+
+label.nombre {
+    font-size: 130%;
+}
+
+.cajaDeTexto {
+    font-family: Arial;
+    font-size: 150%;
+    text-align: center;
+    background-color: #00FF00"
 }

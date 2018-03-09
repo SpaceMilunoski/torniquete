@@ -1,11 +1,11 @@
 <!--
 (*************************************************)
-(*        Autor1: Juan Daniel Soto Dimas         *) 
-(*        Autor2: José Elias Lopéz Duran         *) 
-(*      Version: 1.0                             *) 
-(* Fecha inicio: 14/02/2018                      *) 
-(* Fecha modif.: 02/03/2018                      *) 
-(*      Fichero: index.php	                     *) 
+(*        Autor1: Juan Daniel Soto Dimas         *)
+(*        Autor2: José Elias Lopéz Duran         *)
+(*      Version: 1.0                             *)
+(* Fecha inicio: 14/02/2018                      *)
+(* Fecha modif.: 02/03/2018                      *)
+(*      Fichero: index.php	                     *)
 (*************************************************)
 -->
 <!Doctype>
@@ -15,11 +15,11 @@
     <script type="text/javascript" src="js/iniciar.js"></script>
     <script type="text/javascript">
         window.onload =function llamada(){
-                          <?php session_start(); 
+                          <?php session_start();
                             $acceso=$_SESSION['acceso'];
                             $mensaje=$_SESSION['mensaje'];
                             session_destroy();
-                          echo 'cambiarColor('.$acceso.');  '; ?>                          
+                          echo 'cambiarColor('.$acceso.');  '; ?>
                         }
     </script>
   </head>
@@ -27,12 +27,13 @@
     <div id="cont">
         <div id="cambio"></div>
         <div id="formulario">
-            <form id="acceso" action="php/torniquete.php" method="post">
-                <label>Matricula</label>
-                <input type="number" name="Matricula"  autofocus min="0" max="9999999999"/>
-                <!--  <button type="submit" >Enviar</button> -->
+            <form id="acceso" action="php/torniquete.php" autocomplete="off" method="post">
+                <label class="matricula">Matricula</label>
+                <hr>
+                <input class="cajaDeTexto" type="text" maxlength="10" name="Matricula" autofocus placeholder="Introduce tu matricula"/>
+                <hr>
+                <center><div id="registrado" name="registrado"><label class="nombre"><div id="mensaje"><?php echo $mensaje;?></div></label></div></center>
             </form>
-        <center><div id="registrado" name="registrado"><h1><div id="mensaje"><?php echo $mensaje;?></div></h1></div></center> 
         </div>
         <div id="logo"></div>
     </div>
