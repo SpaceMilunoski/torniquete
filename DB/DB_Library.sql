@@ -217,7 +217,7 @@ BEGIN
 	#Rotorno de la variable
 	RETURN `nameReturn`;
 END//
-DELIMITER;
+DELIMITER ;
 
 -- -----------------------------------------------------
 -- Funcion validarCliente
