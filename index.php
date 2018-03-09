@@ -30,7 +30,7 @@
             <form id="acceso" action="php/torniquete.php" autocomplete="off" method="post">
                 <label class="matricula">Matricula</label>
                 <hr>
-                <input class="cajaDeTexto" type="text" maxlength="10" name="Matricula" autofocus placeholder="Introduce tu matricula"/>
+                <input class="cajaDeTexto" type="text" maxlength="10" name="Matricula" autofocus placeholder="Introduce tu matricula" onKeyPress="return acceptNum(event)"/>
                 <hr>
                 <center><div id="registrado" name="registrado"><label class="nombre"><div id="mensaje"><?php echo $mensaje;?></div></label></div></center>
             </form>
