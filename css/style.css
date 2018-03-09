@@ -12,7 +12,7 @@ body{
     -webkit-border-radius: 8px/7px;
     -moz-border-radius: 8px/7px;
     border-radius: 8px/7px;
-    background-color: rgba(26, 26, 26, 0.91);
+    background-color: rgba(71, 23, 113, 0.91);
     -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31);
     -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31);
     box-shadow: 1px 2px 5px rgba(0,0,0,.31);
@@ -65,4 +65,7 @@ label.nombre {
     font-size: 150%;
     text-align: center;
     background-color: #00FF00"
+}
+hr{
+    border: 0px;
 }
