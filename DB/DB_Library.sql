@@ -254,7 +254,7 @@ BEGIN
 	END IF;
     #Devuelve un 0 o 1 (verdadero o false) dependiendo del resultado de la condicion
 	RETURN `access`;
-END
+END//
 
 DELIMITER ;
 
