@@ -71,6 +71,7 @@ hr{
     border: 0px;
 }
 #visitas{
+  font-size: 20px;
   width: 250px;
   overflow: hidden;
   position: absolute;

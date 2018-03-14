@@ -20,6 +20,7 @@
           protected $nombre;//contendra el nombre de la persona que ingrese
           public $mensaje;//contiene el mensaje de acceso autorizado y y acceso no autorizado
           public $acceso;//es boleano e indica si puede o no pasar la persona
+          public $visitas;
         public function Validar($valormatricula){//con esta funcion se valida que este registrada la persona a ingresar
           $this->conectar();//se llama al metodo conectar de la clase conexion
           $this->matricula=$valormatricula;//obtenemos la matricula de el formulario
@@ -30,6 +31,8 @@
               $this->nombre = mysqli_fetch_row($this->resultado);//
               $this->acceso=true;//asignamos el valor de true al acceso
               $this->mensaje=$this->nombre[0]."<br/>"."Acceso Autorizado";//este mensaje es el que aparecera en la pantalla de inicio incluye el nombre y el mensaje
+              $this->resultado=$this->con->query("Select library.counter();");
+              $this->visitas=mysqli_fetch_row($this->resultado);              
               $this->desconectar();//nos desconectamos de la bd
           }else{
               $this->mensaje="Acceso No Autorizado";//este es el mensaje que se mostrara en la pantalla de inicio
@@ -53,5 +56,6 @@
     session_start();//iniciamos la sesion
     $_SESSION['mensaje']=$torniquete->mensaje;// almacenamos el valor que tiene el la clase en su atributo mensaje dentro de session mensaje
     $_SESSION['acceso']=$torniquete->acceso;// almacenamos el valor que tiene el la clase en su atributo acceso dentro de session acceso
+    $_SESSION['visitas']=$torniquete->visitas[0];
     header("Location: ../index.php");//nos redireccionamos a la pantalla principal
 ?>

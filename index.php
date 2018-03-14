@@ -18,7 +18,9 @@
                           <?php session_start();
                             $acceso=$_SESSION['acceso'];
                             $mensaje=$_SESSION['mensaje'];
+                            $visitas=$_SESSION['visitas'];
                             session_destroy();
+                          echo 'visitas('.$visitas.');';
                           echo 'cambiarColor('.$acceso.');  '; ?>
                         }
     </script>
@@ -39,7 +41,7 @@
     </div>
    
       <div id="visitas">
-      Visitas:<div id="Visitas mensaje">asdajkhdgshdgshgdhsgdhsgdhsgdhsdqqqqqqqqqq</div>
+      Visitas:<div id="visitasmensaje"></div>
     </div>
   </body>
 </html>
