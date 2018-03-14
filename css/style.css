@@ -65,8 +65,28 @@ label.nombre {
     font-family: Arial;
     font-size: 150%;
     text-align: center;
-    background-color: #00FF00"
+    background-color: "#00FF00";
 }
 hr{
     border: 0px;
+}
+#visitas{
+  width: 250px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 10%;
+  right: 10%; 
+  -webkit-border-radius: 8px/7px;
+  -moz-border-radius: 8px/7px;
+  border-radius: 8px/7px;
+  background-color: rgba(71, 23, 113, 0.91);
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31);
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31);
+  box-shadow: 1px 2px 5px rgba(0,0,0,.31);
+  border: solid 1px #cbc9c9;
+  height: 40px;
+  text-align: center;
+  color: aliceblue;
+    padding: 30px;
+    
 }

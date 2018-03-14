@@ -37,5 +37,9 @@
         </div>
         <div id="logo"></div>
     </div>
+   
+      <div id="visitas">
+      Visitas:<div id="Visitas mensaje">asdajkhdgshdgshgdhsgdhsgdhsgdhsdqqqqqqqqqq</div>
+    </div>
   </body>
 </html>
