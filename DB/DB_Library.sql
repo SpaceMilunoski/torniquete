@@ -13,7 +13,7 @@ USE `library`;
 -- En esta tabla muestra el estado de la persona
 -- NOTAS:
 -- *Activo si la persona esta activa dentro de la instituccion
--- *Inactivo la persona
+-- *Inactivo la persona 
 -- *Bloqueado tiene algun adeudo con la biblioteca
 -- -----------------------------------------------------
 CREATE TABLE `status_People`(
@@ -57,11 +57,11 @@ CREATE TABLE `client`(
 );
 
 -- -----------------------------------------------------
--- Tabla visit_Client
+-- Tabla visit_client
 -- En esta tabla muestra la fecha y tiempo en el que el alumno entro a la biblioteca en esta se registraran todas
 -- las entradas sin excepcion.
 -- -----------------------------------------------------
-CREATE TABLE `visit_Client`(
+CREATE TABLE `visit_client`(
 	`id` INT(10) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	`client_id` INT(10) UNSIGNED NOT NULL,
 	`client_identification_Number` VARCHAR(10) NOT NULL,
@@ -127,7 +127,7 @@ CREATE TABLE `book_status`(
 
 -- -----------------------------------------------------
 -- Tabla item
--- En esta tabla se almacenan las copias de los libros
+-- En esta tabla se almacenan las copias de los libros 
 -- NOTAS:
 -- *book_id es el numero de inventario que tienen en la parte frontal
 -- -----------------------------------------------------
@@ -225,33 +225,36 @@ DELIMITER ;
 -- NOTAS:
 -- *como parametros se pide el numero de identificacion o matricula del cliente (enrolment) para despues hacer
 --  la consulta y verificar si existe el cliente en la DB y asi retornar un verdadero o falso (1 o 0).
--- *ademas se inserta la visita individual del cliente en la DB y si se llama el procedimiento almacenado para
--- insertar la visita general (solo si este no ha entrado con anterioridad)
+-- *ademas se inserta la visita individual del cliente en la DB y si se llama el procedimiento almacenado para 
+-- insertar la visita general (solo si este no ha entrado con anterioridad) 
 -- -----------------------------------------------------
 DELIMITER //
-CREATE  FUNCTION `validate_Client`(`enrolment` VARCHAR(10)) RETURNS TINYINT(1)
+
+CREATE  FUNCTION `validate_Client`(`enrolment` VARCHAR(10)) RETURNS tinyint(1)
 BEGIN
 	#Declaracion de las variables a utilizar
 	DECLARE `identification` VARCHAR(10);
 	DECLARE `client_id` INT;
 	DECLARE `access` VARCHAR(1);
+    DECLARE `bloqueado` int(1);
     #Asignacion de las consultas a las variables
 	SET `identification`= (SELECT `identification_Number` FROM `client` WHERE `identification_Number`= `enrolment`);
 	SET `client_id` = (SELECT `id` FROM `client` WHERE `identification_Number`= `enrolment`);
+    SET `bloqueado` = (SELECT `status_People_id` FROM `client` WHERE `identification_Number`= `enrolment`);
 	#Condicion para saber si coinciden las matriculas
-    IF `identification` = `enrolment`
-		THEN
+    IF `identification` = `enrolment` and `bloqueado` = 1
+		THEN 
 		SET `access` = TRUE;
         #Se inserta la visita individual del cliente
 		INSERT INTO `visit_client` VALUES(DEFAULT,`client_id`,`enrolment`,NOW());
-		#Se manda llamar al procedimiento para insertar la visita en el area que le corresponde
+		#Se manda llamar al procedimiento para insertar la visita en el area que le corresponde 
         CALL `visits_Update`(`enrolment`);
-	ELSE
+	ELSE 
 		SET `access` = FALSE;
 	END IF;
     #Devuelve un 0 o 1 (verdadero o false) dependiendo del resultado de la condicion
 	RETURN `access`;
-END //
+END//
 
 DELIMITER ;
 
@@ -262,7 +265,7 @@ DELIMITER ;
 
 -- -----------------------------------------------------
 -- Procedimiento visits_Update
--- Este se encarga de actualizar el registro de las vsitas generales del dia
+-- Este se encarga de actualizar el registro de las vsitas generales del dia 
 -- NOTAS:
 -- *Si el usuario entro anteriormente ya no contara la visita
 -- *Se pide la el numero de indentificacion o matricula (enrolment) para asi hacer una consulta y poder saber si esa
@@ -343,10 +346,10 @@ BEGIN
             WHEN (`area_client` LIKE '%SEGURIDAD%') THEN
 				UPDATE `visits` SET `especialidad_Seguridad`=`especialidad_Seguridad`+1 WHERE `id` = `max_id`;
 			#Si no esalguno de los anteriores significa que es un administrativo
-            ELSE
-				UPDATE `visits` SET `administrativos`=`administrativos`+1 WHERE `id` = `max_id`;
-        END CASE;
-
+            ELSE 
+				UPDATE `visits` SET `administrativos`=`administrativos`+1 WHERE `id` = `max_id`;				
+        END CASE; 
+        
         #Suma total de entradas por dia
         UPDATE `visits` SET `visits_Number` = (
 			`ingenieria_Biomedica` +
@@ -367,9 +370,9 @@ BEGIN
 			`especialidad_Mecatronica` +
 			`especialidad_Seguridad` +
 			`administrativos`
-        ) WHERE `id` = `max_id`;
-
-        #Actualizar estado de entrada del cliente
+        ) WHERE `id` = `max_id`;  
+        
+        #Actualizar estado de entrada del cliente 
         SET `SQL_SAFE_UPDATES` = 0;
         UPDATE `client` SET `already_Entered`=true WHERE `identification_Number`=`enrolment`;
         SET `SQL_SAFE_UPDATES` = 1;
@@ -397,7 +400,7 @@ CREATE EVENT `insert_Day` #creamos el evento insertar dia
 	ON SCHEDULE #en la fecha prevista
 	EVERY 1 DAY #cada dia
     STARTS NOW()
-	ON COMPLETION NOT PRESERVE ENABLE
+	ON COMPLETION NOT PRESERVE ENABLE 
     DO #hacer
     BEGIN #iniciar lo que se hara
 		INSERT INTO `visits` VALUES (DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,NOW()); #insertamos un nuevo registro
@@ -408,3 +411,9 @@ CREATE EVENT `insert_Day` #creamos el evento insertar dia
 DELIMITER ;
 
 /* Aqui finaliza la creacion de Eventos*/
+
+
+
+
+
+
