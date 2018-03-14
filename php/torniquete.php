@@ -30,15 +30,17 @@
               $this->resultado = $this->con->query("Select library.getName('".$this->matricula."');");//obtenemos el nombre de el usuario
               $this->nombre = mysqli_fetch_row($this->resultado);//
               $this->acceso=true;//asignamos el valor de true al acceso
-              $this->mensaje=$this->nombre[0]."<br/>"."Acceso Autorizado";//este mensaje es el que aparecera en la pantalla de inicio incluye el nombre y el mensaje
-              $this->resultado=$this->con->query("Select library.counter();");
-              $this->visitas=mysqli_fetch_row($this->resultado);              
+              $this->mensaje=$this->nombre[0]."<br/>"."Acceso Autorizado";//este mensaje es el que aparecera en la pantalla de inicio incluye el nombre y el mensaje                           
               $this->desconectar();//nos desconectamos de la bd
           }else{
               $this->mensaje="Acceso No Autorizado";//este es el mensaje que se mostrara en la pantalla de inicio
               $this->acceso=false;//negamos el acceso
               $this->desconectar();//desconectamos de la bd
-           }//fin if-else
+           }//fin if-
+           $this->conectar();
+           $this->resultado=$this->con->query("Select library.counter();");
+           $this->visitas=mysqli_fetch_row($this->resultado); 
+           $this->desconectar();
         }//fin funcion
     }//fin clase
     $torniquete = new Torniquete();//instanciamos la clase torniquete

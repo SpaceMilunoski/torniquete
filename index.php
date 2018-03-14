@@ -20,8 +20,8 @@
                             $mensaje=$_SESSION['mensaje'];
                             $visitas=$_SESSION['visitas'];
                             session_destroy();
-                          echo 'visitas('.$visitas.');';
-                          echo 'cambiarColor('.$acceso.');  '; ?>
+                          
+                          echo 'cambiarColor('.$acceso.');  ';  ?>
                         }
     </script>
   </head>
@@ -41,7 +41,7 @@
     </div>
    
       <div id="visitas">
-      Visitas:<div id="visitasmensaje"></div>
+      Visitas:<div id="visitasmensaje"><?php echo $visitas;?></div>
     </div>
   </body>
 </html>
