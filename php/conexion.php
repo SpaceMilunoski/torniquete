@@ -12,9 +12,9 @@
 <?php
 	class Conexion{//iniciamos la clase con la que nos conectaremos a la bd
 		protected $con;//declaramos las variables
-		private	$server="localhost";//direccion del servidor
-		private $username="admin";//usuario
-	 	private $password="7ygv(UHB";//contraseña
+		private	$server="192.168.137.1";//direccion del servidor
+		private $username="Daniel";//usuario
+	 	private $password="1234";//contraseña
 		private $db='library';//base de datos
 		public function conectar(){//esta funcion es la que conecta con la bd (abrimos la conexion)
 			$this->con = new mysqli($this->server,$this->username,$this->password,$this->db);//aqui se almacena la conexion en la variable con
