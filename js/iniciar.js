@@ -14,8 +14,6 @@
            // window.setTimeout(cambio, 1000);//con esto lo regresaremos a color negro una ves pasados 4 segundos
       }
       window.setTimeout(cambio, 1000);
-
- 
  }//fin funcion
  function cambio(){//esta funcion devuelve el div a color negro
     document.getElementById("cambio").style.backgroundColor = "black"; //cambiamos el color de el div a negro
@@ -29,6 +27,4 @@ function acceptNum(evt){
      var key = nav4 ? evt.which : evt.keyCode;
      return (key <= 13 || (key >= 48 && key <= 57) || key <= 8);
 }//fin funcion
-function visitas(visitas){
-      document.getElementById("visitasmensaje").textContent=visitas;
-}
+
