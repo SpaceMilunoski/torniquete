@@ -15,7 +15,7 @@
       }
       window.setTimeout(cambio, 1000);
 
-
+ 
  }//fin funcion
  function cambio(){//esta funcion devuelve el div a color negro
     document.getElementById("cambio").style.backgroundColor = "black"; //cambiamos el color de el div a negro
