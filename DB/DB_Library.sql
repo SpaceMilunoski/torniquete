@@ -258,6 +258,21 @@ END//
 
 DELIMITER ;
 
+-- -----------------------------------------------------
+-- Funcion counter
+-- En esta funcion se hace el conteo que se mostrara en la pagina
+-- -----------------------------------------------------
+DELIMITER //
+CREATE FUNCTION `counter`() RETURNS INT
+BEGIN
+	#Declaracion de las variables a utilizar
+	DECLARE `count` INT;
+    #Asignacion de las consultas a las variables
+	SET `count`= (SELECT COUNT(*) FROM visit_client WHERE DATE(`date`) LIKE CURDATE());
+	RETURN `count`;
+END //
+DELIMITER ;
+
 /* Aqui finalizan las Funciones */
 
 
